@@ -1,26 +1,33 @@
 #include<stdio.h>
+long long int CountUgly(long long int n);
+long long int CheckUgly(long long int number);
 int main()
 {
-    long long int num;
+    long long int num,ans;
     scanf("%lld",&num);
-    long long int i=1,number=2,make[10000000000]={0};
-    if(num==1)
-    {
-        printf("1");
-    }
-    else{
-    while(number<=10000000000)
-    {
-        if(number%2==0||number%3==0||number%5==0)
-            make[i]=number;
-        else
-        {
-            i--;
-        }
-        i++;
-        number++;
-    }
-    printf("%lld",make[num-1]);
-    }
+    ans=CountUgly(num);
+    printf("%lld",ans);
     return 0;
+}
+long long int CountUgly(long long int n)
+{
+    long long i=1,count=1;
+    while (n>count)
+    {
+        i++;
+        if(CheckUgly(i))
+        {
+            count++;
+        }
+    }
+    return i;
+}
+long long int CheckUgly(long long int number)
+{
+    if(number%2==0||number%3==0||number%5==0)
+    {
+        return 1;
+    }
+    else 
+        return 0;
 }
