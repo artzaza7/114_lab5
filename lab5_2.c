@@ -14,6 +14,12 @@ int main()
                 printf("_");
             }
             printf("*");
+            for(int k=1;k<=(i-1)*2-1;k++)
+            {
+                printf("_");
+            }
+            if(i!=1)
+                printf("*");
             printf("\n");
         }
     return 0;
