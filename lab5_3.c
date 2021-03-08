@@ -1,6 +1,7 @@
 #include<stdio.h>
 long long int CountUgly(long long int n);
 long long int CheckUgly(long long int number);
+long long int MaxDivide(long long int a ,long long int b);
 int main()
 {
     long long int num,ans;
@@ -22,9 +23,18 @@ long long int CountUgly(long long int n)
     }
     return i;
 }
+long long int maxDivide(long long int a, long long int b)
+{
+    while (a%b==0)
+        a=a/b;
+    return a;
+}
 long long int CheckUgly(long long int number)
 {
-    if(number%2==0||number%3==0||number%5==0)
+    number=maxDivide(number,2);
+    number=maxDivide(number,3);
+    number=maxDivide(number,5);
+    if(number==1)
     {
         return 1;
     }
